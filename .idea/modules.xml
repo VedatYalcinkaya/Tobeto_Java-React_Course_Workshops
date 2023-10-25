@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Tobeto_Java1A_Workshops.iml" filepath="$PROJECT_DIR$/.idea/Tobeto_Java1A_Workshops.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Workshop_23.10.2023/intro/intro.iml" filepath="$PROJECT_DIR$/Workshop_23.10.2023/intro/intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Workshop_23.10.2023/oop1/oop1.iml" filepath="$PROJECT_DIR$/Workshop_23.10.2023/oop1/oop1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Workshop_25.10.2023/oopWithNLayeredApp/oopWithNLayeredApp.iml" filepath="$PROJECT_DIR$/Workshop_25.10.2023/oopWithNLayeredApp/oopWithNLayeredApp.iml" />
+    </modules>
+  </component>
+</project>
