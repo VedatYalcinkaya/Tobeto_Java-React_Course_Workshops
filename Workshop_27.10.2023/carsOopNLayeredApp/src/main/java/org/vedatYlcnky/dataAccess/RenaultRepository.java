@@ -5,11 +5,11 @@ import org.vedatYlcnky.entities.Car;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RenaultRepository implements ICarRepository{
+public class RenaultRepository implements CarRepository {
 
     List<Car> cars;
 
-    public void RenaultRepository(){
+    public RenaultRepository(){
         cars = new ArrayList<>();
         cars.add(new Car(1,"Taliant 1.0 TCe Joy",2023,1.0,"Benzin"));
         cars.add(new Car(2,"Clio 1.0 TCe Techno Esprit Alpine  ",2023,1.0,"Benzin"));
@@ -20,5 +20,20 @@ public class RenaultRepository implements ICarRepository{
     @Override
     public List<Car> getAll() {
         return cars;
+    }
+
+    @Override
+    public void add(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public void update(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType) {
+
     }
 }

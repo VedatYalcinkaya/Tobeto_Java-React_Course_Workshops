@@ -5,7 +5,7 @@ import org.vedatYlcnky.entities.Car;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MercedesRepository implements ICarRepository{
+public class MercedesRepository implements CarRepository {
 
     List<Car> cars;
 
@@ -21,5 +21,19 @@ public class MercedesRepository implements ICarRepository{
     @Override
     public List<Car> getAll() {
         return cars;
+    }
+
+    @Override
+    public void add(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType) {
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public void update(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType) {
+
     }
 }

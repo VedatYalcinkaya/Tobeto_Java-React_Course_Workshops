@@ -15,6 +15,9 @@ public class Car {
         FuelType = fuelType;
     }
 
+    public Car() {
+    }
+
     public int getId() {
         return id;
     }
