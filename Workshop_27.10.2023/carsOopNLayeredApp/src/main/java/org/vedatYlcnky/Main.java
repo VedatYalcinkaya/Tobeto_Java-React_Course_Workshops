@@ -1,19 +1,26 @@
 package org.vedatYlcnky;
 
 import org.vedatYlcnky.business.CarManager;
+import org.vedatYlcnky.core.logging.DatabaseLogger;
+import org.vedatYlcnky.core.logging.FileLogger;
+import org.vedatYlcnky.core.logging.Logger;
 import org.vedatYlcnky.dataAccess.BmwRepository;
-import org.vedatYlcnky.dataAccess.CarRepository;
 import org.vedatYlcnky.dataAccess.MercedesRepository;
 import org.vedatYlcnky.dataAccess.RenaultRepository;
 import org.vedatYlcnky.entities.Car;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        CarManager carManager = new CarManager(new BmwRepository()); //
+        List<Logger> loggers = new ArrayList<>();
+        loggers.add(new DatabaseLogger());
+        loggers.add(new FileLogger());
+
+        CarManager carManager = new CarManager(new MercedesRepository(),loggers); //
 
         carManager.showTable();
 

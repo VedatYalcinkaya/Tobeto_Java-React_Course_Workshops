@@ -26,15 +26,12 @@ public class RenaultRepository implements CarRepository {
     @Override
     public void add(Car car) {
         cars.add(car);
-        System.out.println("Index: " + car.getId() + ", Renault koleksiyonuna " + car.getCarModelYear() + " "
-                + car.getCarModel() + " modeli eklendi..." );
     }
 
     @Override
     public void delete(int id) {
         for (Car car:cars){
             if (car.getId() == id){
-                System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " silindi.");
                 cars.remove(car);
                 break;
             }
@@ -45,7 +42,6 @@ public class RenaultRepository implements CarRepository {
     public void update(Car car) {
         delete(car.getId());
         cars.add(car);
-        System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " şeklinde güncellendi");
     }
 
     @Override

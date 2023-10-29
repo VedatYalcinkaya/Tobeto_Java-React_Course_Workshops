@@ -26,14 +26,11 @@ public class BmwRepository implements CarRepository {
     @Override
     public void add(Car car) {
         cars.add(car);
-        System.out.println("Index: " + car.getId() + ", BMW koleksiyonuna " + car.getCarModelYear() + " "
-                + car.getCarModel() + " modeli eklendi..." );
     }
 
     public void delete(int id){
         for (Car car:cars){
             if (car.getId() == id){
-                System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " silindi.");
                 cars.remove(car);
                 break;
             }
@@ -43,7 +40,6 @@ public class BmwRepository implements CarRepository {
     public void update(Car car){
         delete(car.getId());
         cars.add(car);
-        System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " şeklinde güncellendi");
     }
 
     public void showTable(){

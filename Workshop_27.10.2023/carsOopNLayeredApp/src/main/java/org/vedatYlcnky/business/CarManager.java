@@ -1,19 +1,19 @@
 package org.vedatYlcnky.business;
 
-import org.vedatYlcnky.dataAccess.BmwRepository;
+import org.vedatYlcnky.core.logging.Logger;
 import org.vedatYlcnky.dataAccess.CarRepository;
-import org.vedatYlcnky.dataAccess.MercedesRepository;
-import org.vedatYlcnky.dataAccess.RenaultRepository;
 import org.vedatYlcnky.entities.Car;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class CarManager {
-    CarRepository carRepository;
+    private CarRepository carRepository;
+    private List<Logger> loggers;
 
-    public CarManager(CarRepository carRepository) {
+    public CarManager(CarRepository carRepository,List<Logger> loggers) {
         this.carRepository = carRepository;
+        this.loggers = loggers;
     }
 
     public List<Car> getAll(){
@@ -60,6 +60,10 @@ public class CarManager {
         control(car);
 
         carRepository.add(car);
+
+        for (Logger logger:loggers){
+            logger.log(car.getId() + " id'li " + car.getCarModelYear() + " " + car.getCarModel() + " eklendi");
+        }
     }
 
     public void update(Car car) throws Exception {      //tüm değerleri girilerek car objesi gönderilecek, gönderilen id'de obje varsa güncellenecek
@@ -70,6 +74,10 @@ public class CarManager {
         control(car);
 
         carRepository.update(car);
+
+        for (Logger logger:loggers){
+            logger.log(car.getId() + " id'li " + car.getCarModelYear() + " " + car.getCarModel() + " güncellendi.");
+        }
     }
 
     public void delete(int id) throws Exception {
@@ -78,12 +86,18 @@ public class CarManager {
         }
 
         carRepository.delete(id);
+
+        for (Logger logger:loggers){
+            logger.log(id + " id'li araç silindi");
+        }
     }
 
-    public void showTable(){
+    public void showTable() throws Exception {
         List<Car> cars = getAll();
         if(cars.size() > 0){
             carRepository.showTable();
+        }else{
+            throw new Exception("Gösterilecek veri bulunamadı");
         }
     }
 
