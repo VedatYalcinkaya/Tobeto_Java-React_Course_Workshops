@@ -15,6 +15,13 @@ public class Car {
         FuelType = fuelType;
     }
 
+    public Car(String carModel, int carModelYear, double engineDisplacement, String fuelType) {
+        this.carModel = carModel;
+        this.carModelYear = carModelYear;
+        this.engineDisplacement = engineDisplacement;
+        FuelType = fuelType;
+    }
+
     public Car() {
     }
 

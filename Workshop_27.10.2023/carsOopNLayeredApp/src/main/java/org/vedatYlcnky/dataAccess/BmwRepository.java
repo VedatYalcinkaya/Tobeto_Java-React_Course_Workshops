@@ -9,7 +9,7 @@ public class BmwRepository implements CarRepository {
 
     List<Car> cars;
 
-    public BmwRepository() {
+    public BmwRepository() {            // Veri üzerinde işlem yapabilmek için constructor yardmıyla veri tabanı simüle ettim.
         cars = new ArrayList<>();
         cars.add(new Car(1,"520i Edition M Sport",2023,1.6,"Benzin"));
         cars.add(new Car(2,"740d xDrive M Excellence",2023,3.0,"Dizel"));
@@ -24,37 +24,35 @@ public class BmwRepository implements CarRepository {
     }
 
     @Override
-    public void add(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType ) {
-        Car car = new Car();
-        car.setId(id);
-        car.setCarModel(carModel);
-        car.setCarModelYear(carModelYear);
-        car.setEngineDisplacement(engineDisplacement);
-        car.setFuelType(fuelType);
+    public void add(Car car) {
         cars.add(car);
-        System.out.println("BMW koleksiyonuna " + carModelYear + " " + carModel + " modeli eklendi");
+        System.out.println("Index: " + car.getId() + ", BMW koleksiyonuna " + car.getCarModelYear() + " "
+                + car.getCarModel() + " modeli eklendi..." );
     }
 
     public void delete(int id){
-        Car carToRemove;
         for (Car car:cars){
             if (car.getId() == id){
-                cars.remove(cars.indexOf(car));
+                System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " silindi.");
+                cars.remove(car);
                 break;
             }
         }
-
-
     }
 
-    public void update(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType){
-        delete(id);
-        Car car = new Car();
-        car.setId(id);
-        car.setCarModel(carModel);
-        car.setCarModelYear(carModelYear);
-        car.setEngineDisplacement(engineDisplacement);
-        car.setFuelType(fuelType);
+    public void update(Car car){
+        delete(car.getId());
         cars.add(car);
+        System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " şeklinde güncellendi");
+    }
+
+    public void showTable(){
+        System.out.println("\n*************** Bmw **************** \n");
+
+        for (Car car:cars){
+            System.out.println("Index: "+ car.getId()+ "\tModel: " + car.getCarModel() + "\t\tYıl: " + car.getCarModelYear() +
+                    "\tMotor Hacmi: " + car.getEngineDisplacement() + "\tYakıt Tipi: " + car.getFuelType());
+        }
+        System.out.println("\n");
     }
 }

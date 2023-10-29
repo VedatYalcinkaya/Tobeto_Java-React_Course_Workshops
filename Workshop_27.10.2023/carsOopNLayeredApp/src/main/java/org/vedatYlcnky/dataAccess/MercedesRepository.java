@@ -24,16 +24,40 @@ public class MercedesRepository implements CarRepository {
     }
 
     @Override
-    public void add(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType) {
+    public void add(Car car) {
+        cars.add(car);
+        System.out.println("Index: " + car.getId() + ", Mercedes koleksiyonuna " + car.getCarModelYear() + " "
+                + car.getCarModel() + " modeli eklendi..." );
     }
 
     @Override
     public void delete(int id) {
-
+        for (Car car:cars){
+            if (car.getId() == id){
+                System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " silindi.");
+                cars.remove(car);
+                break;
+            }
+        }
     }
 
     @Override
-    public void update(int id, String carModel, int carModelYear, double engineDisplacement, String fuelType) {
-
+    public void update(Car car) {
+        delete(car.getId());
+        cars.add(car);
+        System.out.println("Index: " + car.getId() + ", " + car.getCarModelYear()+ " " + car.getCarModel() + " şeklinde güncellendi");
     }
+
+    @Override
+    public void showTable(){
+        System.out.println("\n*************** Mercedes **************** \n");
+
+        for (Car car:cars){
+            System.out.println("Index: "+ car.getId()+ "\tModel: " + car.getCarModel() + "\t\tYıl: " + car.getCarModelYear() +
+                    "\tMotor Hacmi: " + car.getEngineDisplacement() + "\tYakıt Tipi: " + car.getFuelType());
+        }
+        System.out.println("\n");
+    }
+
+
 }
