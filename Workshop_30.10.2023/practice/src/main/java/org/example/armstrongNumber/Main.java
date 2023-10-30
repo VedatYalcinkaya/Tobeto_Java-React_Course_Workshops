@@ -21,7 +21,9 @@ public class Main {
 
         while(num>0){
             int digit = num % 10;
-            sum += Math.pow(digit, n);
+            //System.out.println("digit = "+ digit);
+            sum += Math.pow(digit, n);  //27 + 125 + 1"
+            //System.out.println(sum);
             num = num / 10;
         }
         if (sum == armstrong){
@@ -30,3 +32,4 @@ public class Main {
         return false;
     }
 }
+

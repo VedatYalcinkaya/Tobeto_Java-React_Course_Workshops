@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         String message1 = "vedat";
-        String message2 = "datve";
+        String message2 = "dasve";
 
         if (isAnagram(message1, message2)){
             System.out.println(message1 + " ve " + message2 + " anagramdır.");
@@ -21,6 +21,7 @@ public class Main {
 
         char[] charArray1 = message1.toCharArray();
         char[] charArray2 = message2.toCharArray();
+
 
         Arrays.sort(charArray1);
         Arrays.sort(charArray2);
