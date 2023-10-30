@@ -9,6 +9,7 @@ public class Main { // Write a Java program gives character counts in a string E
     }
 
     public static void charCountInString(String msg){
+        msg = msg.toLowerCase();
         int[]charCount = new int[128];
 
         for(int i = 0; i < msg.length();i++){
