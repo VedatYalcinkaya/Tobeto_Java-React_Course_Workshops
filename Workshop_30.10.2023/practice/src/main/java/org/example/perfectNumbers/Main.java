@@ -15,25 +15,20 @@ public class Main {
                 perfectNumbers.add(i);
             }
         }
-
-        for (long i:perfectNumbers){
-            System.out.println(i);
-        }
-
     }
 
     public static List<Long> findDivisors(long num){
         List<Long> divisors = new ArrayList<>();
         for(long i = 1; i < num; i++) {
             if (num % i == 0){
-                divisors.add(i); // 1,2,3
+                divisors.add(i);
             }
         }
         return divisors;
     }
 
     public static boolean isPerfect(long num){
-        List<Long> divisors = findDivisors(num); // 1,2,3
+        List<Long> divisors = findDivisors(num);
         long sum = 0;
         for (long i = 0; i < divisors.size(); i++){
             sum += divisors.get((int) i);
