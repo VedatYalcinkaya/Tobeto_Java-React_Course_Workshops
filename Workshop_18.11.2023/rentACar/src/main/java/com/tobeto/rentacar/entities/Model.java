@@ -20,6 +20,10 @@ public class Model {
     @OneToMany(mappedBy = "model")
     private List<Car> cars;
 
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+
     //one-to-many ilişkilerde list olan değişlken @OneToMany
     //direkt class olan değişken @ManyToOne
 

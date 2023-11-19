@@ -2,6 +2,8 @@ package com.tobeto.rentacar.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 //ORM => Object Relation Mapping
 @Table(name="cars")
 @Entity
@@ -22,5 +24,20 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;
+
+    @ManyToOne
+    @JoinColumn(name = "gear_id")
+    private Gear gear;
+
+    @ManyToOne
+    @JoinColumn(name = "fuel_type_id")
+    private FuelType fuelType;
+
+    @ManyToOne
+    @JoinColumn(name = "price_id")
+    private Price price;
+
+    @OneToMany(mappedBy = "car")
+    private List<Rent> rents;
 
 }
