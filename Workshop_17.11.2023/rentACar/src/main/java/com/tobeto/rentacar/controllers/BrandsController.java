@@ -2,7 +2,6 @@ package com.tobeto.rentacar.controllers;
 
 import com.tobeto.rentacar.entities.Brand;
 import com.tobeto.rentacar.repositories.BrandRepository;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class BrandsController {
     public void delete (@PathVariable int id){
         Brand brandToDelete = brandRepository.findById(id).orElseThrow();
         // exception fırlaması
-        //bu satıra geldiyse, bu id ile bir veri vardır
+        // bu satıra geldiyse, bu id ile bir veri vardır
         brandRepository.delete(brandToDelete);
     }
 }
