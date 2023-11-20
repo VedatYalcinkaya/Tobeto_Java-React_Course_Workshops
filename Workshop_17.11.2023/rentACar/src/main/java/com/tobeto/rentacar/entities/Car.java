@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+// Repository, DAO, DAL
+// Data Access Object
+// Data Access Layer
+
 //ORM => Object Relation Mapping
 @Table(name="cars")
 @Entity
