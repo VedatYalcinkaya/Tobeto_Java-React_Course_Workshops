@@ -1,6 +1,9 @@
 package com.tobeto.rentacar.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -11,6 +14,8 @@ import java.util.List;
 //ORM => Object Relation Mapping
 @Table(name="cars")
 @Entity
+@Getter
+@Setter
 public class Car {
     @Id
     @Column(name = "id") //name = kolon_adı
@@ -42,6 +47,7 @@ public class Car {
     private Price price;
 
     @OneToMany(mappedBy = "car")
+    @JsonIgnore
     private List<Rent> rents;
 
 }

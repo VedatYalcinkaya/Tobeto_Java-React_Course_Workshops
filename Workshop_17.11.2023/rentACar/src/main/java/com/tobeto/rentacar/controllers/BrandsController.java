@@ -21,7 +21,6 @@ public class BrandsController {
     @GetMapping
     public List<Brand> getAll() {
         // findAll => hazır bir JPA repository fonk.
-        List<Brand> brands = brandRepository.findAll();
         return brandRepository.findAll();
     }
 
@@ -37,12 +36,26 @@ public class BrandsController {
     }
 
     @DeleteMapping("{id}")
-    public void delete (@PathVariable int id){
+    public void delete(@PathVariable int id){
         Brand brandToDelete = brandRepository.findById(id).orElseThrow();
         // exception fırlaması
         // bu satıra geldiyse, bu id ile bir veri vardır
         brandRepository.delete(brandToDelete);
     }
+
+    @PutMapping("{id}")
+    public void update(@PathVariable int id, @RequestBody Brand updatedBrand) {
+        Brand brandToUpdate = brandRepository.findById(id).orElseThrow();
+        // exception fırlaması
+        // bu satıra geldiyse, bu id ile bir veri vardır.
+        // burada name kısmımızı değiştiriyoruz
+        brandToUpdate.setName(updatedBrand.getName());
+
+        //burada değiştirdiğimiz veriyi kaydediyoruz
+        brandRepository.save(brandToUpdate);
+    }
+
+
 }
 
 // http://localhost:8080/api/brands GET

@@ -1,16 +1,20 @@
 package com.tobeto.rentacar.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Table(name = "rents")
 @Entity
+@Getter
+@Setter
 public class Rent
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private int id;
 
     @Column(name = "rent_start_date")

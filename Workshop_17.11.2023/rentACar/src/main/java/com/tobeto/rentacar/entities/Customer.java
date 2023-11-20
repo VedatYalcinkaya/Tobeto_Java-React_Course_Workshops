@@ -1,16 +1,21 @@
 package com.tobeto.rentacar.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Table(name = "customers")
 @Entity
+@Getter
+@Setter
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private int id;
 
     @Column (name = "name")
@@ -38,6 +43,7 @@ public class Customer {
     private String phone;
 
     @OneToMany(mappedBy = "customer")
+    @JsonIgnore
     private List<Rent> rents;
 
     @ManyToOne
